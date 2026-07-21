@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tiger Tech | Web Format Previews</title>
+    <link rel="stylesheet" href="web-format-concepts.css" />
+    <style>
+      .preview-list {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 34px;
+      }
+
+      .preview-card {
+        min-height: 210px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.07);
+        box-shadow: var(--shadow);
+      }
+
+      .preview-card span {
+        color: var(--amber);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .preview-card h2 {
+        margin: 14px 0 0;
+        font-size: 24px;
+        line-height: 1.15;
+        font-weight: 900;
+      }
+
+      .preview-card p {
+        margin: 12px 0 0;
+        color: rgba(255, 255, 255, 0.66);
+        line-height: 1.55;
+        font-weight: 650;
+      }
+
+      @media (max-width: 1100px) {
+        .preview-list {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 680px) {
+        .preview-list {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="format-header">
+      <a class="brand" href="index.html">
+        <span class="mark">TT</span>
+        <span><strong>Tiger Tech</strong><span>Web format previews</span></span>
+      </a>
+      <nav class="format-nav" aria-label="Format previews">
+        <a href="format-1-html-css-illustration.html">1</a>
+        <a href="format-2-svg-illustration.html">2</a>
+        <a href="format-3-lottie-style-animation.html">3</a>
+        <a href="format-4-canvas-animation.html">4</a>
+        <a href="format-5-css-icon-scene.html">5</a>
+        <a href="format-6-svg-html-hybrid.html">6</a>
+        <a href="format-7-photo-hero.html">7</a>
+      </nav>
+    </header>
+
+    <main class="format-page">
+      <div class="format-shell" style="padding: 52px 0 80px">
+        <span class="kicker">Tiger Tech format options</span>
+        <h1>Choose the best hero format</h1>
+        <p style="max-width: 720px; margin-top: 20px; color: rgba(255,255,255,.7); font-size: 18px; line-height: 1.7; font-weight: 650">
+          These files show the same business transformation idea using
+          editable web-native formats and one direct photo-based option.
+        </p>
+
+        <div class="preview-list">
+          <a class="preview-card" href="format-1-html-css-illustration.html">
+            <span>Format 1</span>
+            <h2>HTML/CSS illustration</h2>
+            <p>Fast and editable, built from layout, cards and CSS shapes.</p>
+          </a>
+          <a class="preview-card" href="format-2-svg-illustration.html">
+            <span>Format 2</span>
+            <h2>SVG illustration</h2>
+            <p>Sharp vector diagram that scales cleanly on every screen.</p>
+          </a>
+          <a class="preview-card" href="format-3-lottie-style-animation.html">
+            <span>Format 3</span>
+            <h2>Lottie-style animation</h2>
+            <p>JSON-driven motion preview without external dependencies.</p>
+          </a>
+          <a class="preview-card" href="format-4-canvas-animation.html">
+            <span>Format 4</span>
+            <h2>Canvas animation</h2>
+            <p>Custom moving data lines and dashboard drawing.</p>
+          </a>
+          <a class="preview-card" href="format-5-css-icon-scene.html">
+            <span>Format 5</span>
+            <h2>CSS icon scene</h2>
+            <p>Very light icon-based scene with no SVG or image assets.</p>
+          </a>
+          <a class="preview-card" href="format-6-svg-html-hybrid.html">
+            <span>Format 6</span>
+            <h2>SVG + HTML/CSS hybrid</h2>
+            <p>Recommended practical choice: sharp icons plus editable dashboard UI.</p>
+          </a>
+          <a class="preview-card" href="format-7-photo-hero.html">
+            <span>Format 7</span>
+            <h2>Photo-based hero</h2>
+            <p>Uses the realistic manual-work image directly for stronger visual quality.</p>
+          </a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
