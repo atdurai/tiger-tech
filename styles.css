@@ -18,6 +18,13 @@
   box-sizing: border-box;
 }
 
+.icon-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -203,78 +210,21 @@ h1 {
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.28);
 }
 
-.manual-photo-side {
-  position: relative;
-  overflow: hidden;
+.manual-card-side {
+  display: grid;
+  align-content: center;
+  gap: 12px;
   border-right: 1px solid var(--dark-line);
-  background: #0b0d10;
-}
-
-.manual-photo-side img {
-  display: block;
-  width: 120%;
-  max-width: none;
-  height: 100%;
-  object-fit: cover;
-  object-position: 18% center;
-  transform: translateX(-10%);
-}
-
-.manual-photo-shade {
-  position: absolute;
-  inset: 0;
+  padding: 14px;
   background:
-    linear-gradient(180deg, rgba(8, 10, 12, 0.05), transparent 42%, rgba(8, 10, 12, 0.68)),
-    linear-gradient(90deg, transparent 0 70%, rgba(8, 10, 12, 0.34));
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    radial-gradient(circle at 16% 12%, rgba(245, 158, 11, 0.13), transparent 34%),
+    rgba(12, 15, 19, 0.92);
+  background-size: 24px 24px, 24px 24px, auto, auto;
 }
 
-.photo-pin {
-  position: absolute;
-  display: inline-grid;
-  min-height: 26px;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 7px;
-  padding: 0 9px;
-  background: rgba(13, 16, 20, 0.72);
-  color: #fff7ed;
-  font-size: 10px;
-  font-weight: 900;
-  backdrop-filter: blur(10px);
-}
-
-.invoice-pin {
-  left: 9%;
-  top: 18%;
-}
-
-.stock-pin {
-  right: 8%;
-  top: 20%;
-}
-
-.register-pin {
-  left: 30%;
-  top: 48%;
-}
-
-.payment-pin {
-  right: 8%;
-  bottom: 22%;
-}
-
-.banner-caption {
-  position: absolute;
-  left: 13px;
-  bottom: 13px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 9px;
-  padding: 9px 11px;
-  background: rgba(13, 16, 20, 0.7);
-  backdrop-filter: blur(12px);
-}
-
-.banner-caption span,
+.manual-panel-heading span,
 .system-heading span,
 .conversion-kicker {
   color: var(--amber);
@@ -284,7 +234,7 @@ h1 {
   text-transform: uppercase;
 }
 
-.banner-caption strong,
+.manual-panel-heading strong,
 .system-heading strong {
   display: block;
   margin-top: 5px;
@@ -292,6 +242,45 @@ h1 {
   font-size: 15px;
   line-height: 1.15;
   font-weight: 900;
+}
+
+.manual-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.manual-work-card {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  min-height: 58px;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 9px;
+  background: rgba(255, 255, 255, 0.075);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.manual-work-card svg,
+.tablet-module svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  color: #fbbf24;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.manual-work-card span {
+  overflow-wrap: anywhere;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1.15;
 }
 
 .conversion-card {
@@ -352,25 +341,34 @@ h1 {
 }
 
 .system-side {
-  display: grid;
-  align-content: center;
-  gap: 8px;
+  position: relative;
+  min-height: 310px;
   padding: 12px 14px;
   background:
     radial-gradient(circle at 82% 6%, rgba(52, 211, 153, 0.12), transparent 30%),
     radial-gradient(circle at 12% 90%, rgba(125, 211, 252, 0.1), transparent 30%);
 }
 
+.system-heading {
+  position: relative;
+  z-index: 5;
+}
+
 .desktop-monitor {
+  position: absolute;
+  top: 64px;
+  right: 14px;
+  z-index: 2;
   display: grid;
+  width: min(calc(100% - 28px), 286px);
   justify-items: center;
   align-content: center;
-  min-height: 220px;
+  min-height: 0;
 }
 
 .monitor-frame {
   position: relative;
-  width: min(100%, 380px);
+  width: 100%;
   overflow: hidden;
   border: 6px solid #050607;
   border-bottom-width: 26px;
@@ -381,7 +379,7 @@ h1 {
 
 .monitor-screen {
   overflow: hidden;
-  min-height: 152px;
+  min-height: 116px;
   aspect-ratio: 16 / 10;
   border-radius: 7px;
   background:
@@ -432,8 +430,8 @@ h1 {
 .dashboard-grid {
   display: grid;
   grid-template-columns: 0.86fr 1.14fr;
-  gap: 5px;
-  padding: 5px;
+  gap: 4px;
+  padding: 4px;
 }
 
 .dash-focus,
@@ -448,13 +446,13 @@ h1 {
 .dash-focus {
   display: grid;
   align-content: space-between;
-  min-height: 56px;
+  min-height: 48px;
   padding: 5px;
 }
 
 .dash-focus strong {
   color: #bbf7d0;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 900;
 }
 
@@ -467,12 +465,12 @@ h1 {
 .dash-kpis {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 5px;
+  gap: 4px;
 }
 
 .dash-kpis article {
-  min-height: 32px;
-  padding: 5px;
+  min-height: 28px;
+  padding: 4px;
 }
 
 .dash-kpis strong {
@@ -485,16 +483,16 @@ h1 {
 
 .dash-workflows {
   display: grid;
-  gap: 5px;
+  gap: 4px;
 }
 
 .dash-workflows div {
   display: flex;
-  min-height: 25px;
+  min-height: 22px;
   align-items: center;
   justify-content: space-between;
   gap: 6px;
-  padding: 5px;
+  padding: 4px;
 }
 
 .dash-workflows b {
@@ -505,8 +503,8 @@ h1 {
 
 .dash-chart {
   display: grid;
-  gap: 5px;
-  padding: 5px;
+  gap: 4px;
+  padding: 4px;
 }
 
 .dash-chart div:first-child {
@@ -523,7 +521,7 @@ h1 {
 
 .bar-row {
   display: flex;
-  min-height: 36px;
+  min-height: 28px;
   align-items: end;
   gap: 4px;
 }
@@ -560,6 +558,112 @@ h1 {
   height: 10px;
   border-radius: 999px 999px 8px 8px;
   background: linear-gradient(180deg, #d8dcdf, #7f878e);
+}
+
+.tablet-device,
+.phone-device {
+  position: absolute;
+  z-index: 4;
+  border: 5px solid #06080a;
+  background: #06080a;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.42);
+}
+
+.tablet-device {
+  left: 14px;
+  bottom: 22px;
+  width: min(190px, 47%);
+  height: 118px;
+  border-radius: 16px;
+}
+
+.tablet-screen,
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.052) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.052) 1px, transparent 1px),
+    #10161d;
+  background-size: 18px 18px, 18px 18px, auto;
+}
+
+.tablet-screen {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  border-radius: 10px;
+  padding: 8px;
+}
+
+.tablet-module {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 4px;
+  min-width: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 7px;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.075);
+  color: #fbbf24;
+}
+
+.tablet-module b {
+  overflow: hidden;
+  max-width: 100%;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 8px;
+  font-weight: 900;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.phone-device {
+  right: 22px;
+  bottom: 16px;
+  width: 74px;
+  height: 136px;
+  border-radius: 18px;
+}
+
+.phone-notch {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  z-index: 1;
+  width: 26px;
+  height: 4px;
+  border-radius: 999px;
+  background: #050607;
+  transform: translateX(-50%);
+}
+
+.phone-screen {
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  border-radius: 13px;
+  padding: 18px 8px 8px;
+}
+
+.phone-row {
+  display: block;
+  width: 100%;
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(125, 211, 252, 0.5);
+}
+
+.phone-row.short {
+  width: 70%;
+  background: rgba(52, 211, 153, 0.56);
+}
+
+.phone-row.amber {
+  width: 82%;
+  background: rgba(245, 158, 11, 0.62);
 }
 
 .pro-section {
@@ -697,6 +801,15 @@ h2 {
     height: 300px;
   }
 
+  .system-side {
+    min-height: 300px;
+  }
+
+  .desktop-monitor {
+    top: 62px;
+    width: min(calc(100% - 28px), 280px);
+  }
+
   .system-list,
   .process-steps {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -744,7 +857,7 @@ h2 {
     gap: 12px;
   }
 
-  .manual-photo-side,
+  .manual-card-side,
   .conversion-card,
   .system-side {
     border: 1px solid var(--dark-line);
@@ -753,35 +866,51 @@ h2 {
     box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
   }
 
-  .manual-photo-side {
-    height: 285px;
+  .manual-card-side {
+    min-height: 250px;
   }
 
   .conversion-card {
-    min-height: 148px;
+    min-height: 132px;
   }
 
   .system-side {
+    min-height: 312px;
     padding: 14px;
   }
 
   .desktop-monitor {
-    min-height: 275px;
+    top: 62px;
+    right: 12px;
+    width: min(calc(100% - 24px), 292px);
+    min-height: 0;
   }
 
   .monitor-frame {
     border-width: 7px;
-    border-bottom-width: 34px;
+    border-bottom-width: 28px;
   }
 
   .monitor-screen {
-    min-height: 190px;
-    aspect-ratio: auto;
+    min-height: 116px;
+    aspect-ratio: 16 / 10;
   }
 
   .monitor-chin {
-    bottom: -30px;
-    min-height: 30px;
-    font-size: 10px;
+    bottom: -25px;
+    min-height: 25px;
+    font-size: 9px;
+  }
+
+  .tablet-device {
+    left: 14px;
+    bottom: 18px;
+    width: min(178px, 54%);
+    height: 110px;
+  }
+
+  .phone-device {
+    right: 16px;
+    bottom: 14px;
   }
 }
