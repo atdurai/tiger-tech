@@ -669,6 +669,256 @@ h2 {
   justify-self: end;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.chappy-panel {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 60;
+  width: min(300px, calc(100vw - 24px));
+  max-height: calc(100vh - 36px);
+  overflow: hidden;
+  border: 1px solid rgba(8, 12, 15, 0.1);
+  border-radius: 14px;
+  background: #f7f7f4;
+  color: #1d2228;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.24);
+}
+
+.chappy-panel[hidden] {
+  display: none;
+}
+
+.chappy-panel-header {
+  display: grid;
+  grid-template-columns: 28px 1fr 28px;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(8, 12, 15, 0.08);
+}
+
+.chappy-close {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #3d454d;
+  cursor: pointer;
+  font: inherit;
+}
+
+.chappy-close:hover {
+  background: rgba(8, 12, 15, 0.06);
+}
+
+.chappy-menu {
+  display: flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #3d454d;
+}
+
+.chappy-menu span {
+  width: 12px;
+  height: 1.5px;
+  margin: 1.6px 0;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.chappy-panel-brand {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 6px;
+  color: #1d2228;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.chappy-panel-brand img {
+  display: block;
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.chappy-panel-brand strong {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.chappy-panel-brand span {
+  width: 0;
+  height: 0;
+  border-top: 4px solid #4d5660;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+.chappy-panel-body {
+  display: grid;
+  gap: 8px;
+  padding: 10px 12px 12px;
+}
+
+.chappy-pill {
+  width: fit-content;
+  border-radius: 5px;
+  padding: 3px 6px;
+  background: rgba(255, 154, 0, 0.18);
+  color: #613900;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.chappy-prompt {
+  margin: 0 0 2px;
+  color: #2d333a;
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 650;
+}
+
+.chappy-suggestion {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 8px;
+  border: 0;
+  border-radius: 7px;
+  background: #ececef;
+  color: #2b3036;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.chappy-suggestion::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(8, 12, 15, 0.18);
+  border-radius: 5px;
+  background:
+    linear-gradient(#7a828a, #7a828a) center 6px / 8px 1px no-repeat,
+    linear-gradient(#7a828a, #7a828a) center 11px / 8px 1px no-repeat,
+    #ffffff;
+}
+
+.chappy-suggestion:hover {
+  background: #e2e3e7;
+}
+
+.chappy-context {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  border: 1px solid rgba(8, 12, 15, 0.08);
+  border-radius: 7px;
+  padding: 7px 8px;
+  background: #f1f3f7;
+  font-size: 10px;
+}
+
+.chappy-context span {
+  color: #5e6872;
+}
+
+.chappy-context b {
+  overflow: hidden;
+  color: #1457c8;
+  font-weight: 750;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chappy-form {
+  display: grid;
+  gap: 8px;
+  margin-top: 4px;
+  border: 1px solid rgba(8, 12, 15, 0.12);
+  border-radius: 10px;
+  padding: 10px;
+  background: #ffffff;
+}
+
+.chappy-form textarea {
+  width: 100%;
+  min-height: 62px;
+  resize: none;
+  border: 0;
+  outline: 0;
+  color: #22282e;
+  font: inherit;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.chappy-form textarea::placeholder {
+  color: #7a828a;
+}
+
+.chappy-form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.chappy-form-actions a,
+.chappy-form-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.chappy-form-actions a {
+  padding: 0 9px;
+  color: #1d2228;
+  background: #f1f2f4;
+}
+
+.chappy-form-actions button {
+  min-width: 54px;
+  border: 0;
+  color: #101316;
+  background: var(--amber);
+  cursor: pointer;
+  font: inherit;
+}
+
 .chappy-float {
   position: fixed;
   right: 18px;
@@ -678,6 +928,7 @@ h2 {
   place-items: center;
   width: 58px;
   height: 58px;
+  padding: 0;
   overflow: hidden;
   border: 2px solid rgba(255, 154, 0, 0.7);
   border-radius: 18px;
@@ -685,7 +936,9 @@ h2 {
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.08),
     0 12px 28px rgba(0, 0, 0, 0.32);
+  cursor: pointer;
   touch-action: manipulation;
+  font: inherit;
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
@@ -695,6 +948,12 @@ h2 {
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.12),
     0 16px 34px rgba(0, 0, 0, 0.38);
+}
+
+.chappy-widget.is-open .chappy-float {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px) scale(0.9);
 }
 
 .chappy-float:focus-visible {
@@ -712,6 +971,11 @@ h2 {
 }
 
 @supports (bottom: env(safe-area-inset-bottom)) {
+  .chappy-panel {
+    right: calc(18px + env(safe-area-inset-right));
+    bottom: calc(18px + env(safe-area-inset-bottom));
+  }
+
   .chappy-float {
     right: calc(18px + env(safe-area-inset-right));
     bottom: calc(14px + env(safe-area-inset-bottom));
@@ -862,6 +1126,56 @@ h2 {
     bottom: 14px;
   }
 
+  .chappy-panel {
+    right: 14px;
+    bottom: 14px;
+    width: min(292px, calc(100vw - 28px));
+    max-height: min(420px, calc(100vh - 28px));
+  }
+
+  .chappy-panel-header {
+    grid-template-columns: 24px 1fr 24px;
+    gap: 6px;
+    padding: 8px 10px;
+  }
+
+  .chappy-menu,
+  .chappy-close {
+    width: 24px;
+    height: 24px;
+  }
+
+  .chappy-panel-brand img {
+    width: 15px;
+    height: 15px;
+  }
+
+  .chappy-panel-body {
+    gap: 7px;
+    padding: 8px 10px 10px;
+  }
+
+  .chappy-suggestion {
+    min-height: 32px;
+    padding: 7px;
+    font-size: 10px;
+  }
+
+  .chappy-context {
+    margin-top: 2px;
+    padding: 6px 7px;
+  }
+
+  .chappy-form {
+    gap: 6px;
+    margin-top: 2px;
+    padding: 8px;
+  }
+
+  .chappy-form textarea {
+    min-height: 48px;
+  }
+
   .chappy-float {
     right: 12px;
     bottom: 10px;
@@ -876,6 +1190,11 @@ h2 {
   }
 
   @supports (bottom: env(safe-area-inset-bottom)) {
+    .chappy-panel {
+      right: calc(14px + env(safe-area-inset-right));
+      bottom: calc(14px + env(safe-area-inset-bottom));
+    }
+
     .chappy-float {
       right: calc(12px + env(safe-area-inset-right));
       bottom: calc(10px + env(safe-area-inset-bottom));

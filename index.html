@@ -233,8 +233,100 @@
         </div>
       </section>
     </main>
-    <a class="chappy-float" href="#contact" aria-label="Contact TigerOne">
-      <img src="public/chappy-3d.png?v=20260722-2" alt="" aria-hidden="true" />
-    </a>
+    <div class="chappy-widget">
+      <section class="chappy-panel" id="chappy-panel" aria-labelledby="chappy-title" hidden>
+        <div class="chappy-panel-header">
+          <span class="chappy-menu" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <div class="chappy-panel-brand">
+            <img src="public/tigerone-mark.png" alt="" aria-hidden="true" />
+            <strong>Tigo</strong>
+            <span class="chappy-brand-caret" aria-hidden="true"></span>
+          </div>
+          <button class="chappy-close" type="button" aria-label="Close assistant">x</button>
+        </div>
+        <div class="chappy-panel-body">
+          <span class="chappy-pill">Workflow prompt</span>
+          <p class="chappy-prompt" id="chappy-title">
+            Tell us the manual work you want to simplify first.
+          </p>
+          <button class="chappy-suggestion" type="button" data-chappy-text="I want to reduce daily manual entries in my business.">
+            Reduce daily manual entries.
+          </button>
+          <button class="chappy-suggestion" type="button" data-chappy-text="I need one system to track orders, payments and follow-up work.">
+            Track orders, payments and follow-up.
+          </button>
+          <button class="chappy-suggestion" type="button" data-chappy-text="I want a repeatable workflow for my staff and owner dashboard.">
+            Build a repeatable staff workflow.
+          </button>
+          <div class="chappy-context">
+            <span>Context:</span>
+            <b>Business workflow review</b>
+          </div>
+          <form class="chappy-form">
+            <label class="sr-only" for="chappy-message">Message for TigerOne</label>
+            <textarea id="chappy-message" rows="3" placeholder="Describe your daily manual work..."></textarea>
+            <div class="chappy-form-actions">
+              <a href="#contact">Contact</a>
+              <button type="submit" aria-label="Send message">Send</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <button class="chappy-float" type="button" aria-label="Open Tigo assistant" aria-expanded="false" aria-controls="chappy-panel">
+        <img src="public/chappy-3d.png?v=20260722-2" alt="" aria-hidden="true" />
+      </button>
+    </div>
+    <script>
+      const chappyLauncher = document.querySelector(".chappy-float");
+      const chappyWidget = document.querySelector(".chappy-widget");
+      const chappyPanel = document.querySelector("#chappy-panel");
+      const chappyClose = document.querySelector(".chappy-close");
+      const chappyMessage = document.querySelector("#chappy-message");
+      const chappySuggestions = document.querySelectorAll(".chappy-suggestion");
+      const chappyForm = document.querySelector(".chappy-form");
+      const chappyContact = document.querySelector(".chappy-form-actions a");
+
+      function setChappyOpen(isOpen) {
+        chappyPanel.hidden = !isOpen;
+        chappyWidget.classList.toggle("is-open", isOpen);
+        chappyLauncher.setAttribute("aria-expanded", String(isOpen));
+        if (isOpen) {
+          chappyMessage.focus();
+        } else {
+          chappyLauncher.focus();
+        }
+      }
+
+      chappyLauncher.addEventListener("click", () => {
+        setChappyOpen(chappyPanel.hidden);
+      });
+
+      chappyClose.addEventListener("click", () => setChappyOpen(false));
+
+      chappySuggestions.forEach((button) => {
+        button.addEventListener("click", () => {
+          chappyMessage.value = button.dataset.chappyText;
+          chappyMessage.focus();
+        });
+      });
+
+      chappyForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        window.location.hash = "contact";
+        setChappyOpen(false);
+      });
+
+      chappyContact.addEventListener("click", () => setChappyOpen(false));
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !chappyPanel.hidden) {
+          setChappyOpen(false);
+        }
+      });
+    </script>
   </body>
 </html>
