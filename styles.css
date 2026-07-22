@@ -951,10 +951,13 @@ h2 {
   cursor: pointer;
   touch-action: manipulation;
   font: inherit;
+  animation: tigoLauncherBounce 3.2s ease-in-out infinite;
+  transform-origin: center bottom;
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
 .chappy-float:hover {
+  animation-play-state: paused;
   transform: translateY(-3px) scale(1.03);
   border-color: rgba(255, 178, 38, 0.95);
   box-shadow:
@@ -963,8 +966,10 @@ h2 {
 }
 
 .chappy-widget.is-open .chappy-float {
+  animation: none;
   opacity: 0;
   pointer-events: none;
+  translate: 0 0;
   transform: translateY(8px) scale(0.9);
 }
 
@@ -980,6 +985,36 @@ h2 {
   height: 42px;
   object-fit: contain;
   object-position: center bottom;
+}
+
+@keyframes tigoLauncherBounce {
+  0%,
+  68%,
+  100% {
+    translate: 0 0;
+  }
+
+  74% {
+    translate: 0 -8px;
+  }
+
+  80% {
+    translate: 0 0;
+  }
+
+  86% {
+    translate: 0 -4px;
+  }
+
+  92% {
+    translate: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chappy-float {
+    animation: none;
+  }
 }
 
 @supports (bottom: env(safe-area-inset-bottom)) {
