@@ -673,11 +673,12 @@ h2 {
   position: fixed;
   right: 18px;
   bottom: 14px;
-  z-index: 30;
+  z-index: 60;
   display: block;
   width: 90px;
   background: transparent;
   filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.32));
+  touch-action: manipulation;
   transition: transform 180ms ease, filter 180ms ease;
 }
 
@@ -696,6 +697,13 @@ h2 {
   display: block;
   width: 100%;
   height: auto;
+}
+
+@supports (bottom: env(safe-area-inset-bottom)) {
+  .chappy-float {
+    right: calc(18px + env(safe-area-inset-right));
+    bottom: calc(14px + env(safe-area-inset-bottom));
+  }
 }
 
 @media (max-width: 1040px) {
@@ -846,5 +854,12 @@ h2 {
     right: 12px;
     bottom: 10px;
     width: 72px;
+  }
+
+  @supports (bottom: env(safe-area-inset-bottom)) {
+    .chappy-float {
+      right: calc(12px + env(safe-area-inset-right));
+      bottom: calc(10px + env(safe-area-inset-bottom));
+    }
   }
 }
