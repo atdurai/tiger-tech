@@ -701,47 +701,48 @@ h2 {
 
 .chappy-panel-header {
   display: grid;
-  grid-template-columns: 28px 1fr 28px;
+  grid-template-columns: 1fr 30px;
   align-items: center;
   gap: 8px;
-  padding: 10px 12px;
+  padding: 9px 10px 8px 12px;
   border-bottom: 1px solid rgba(8, 12, 15, 0.08);
 }
 
 .chappy-close {
   display: grid;
   place-items: center;
-  width: 28px;
-  height: 28px;
+  position: relative;
+  width: 30px;
+  height: 30px;
   padding: 0;
-  border: 0;
-  border-radius: 8px;
-  background: transparent;
+  border: 1px solid rgba(8, 12, 15, 0.08);
+  border-radius: 999px;
+  background: #ffffff;
   color: #3d454d;
   cursor: pointer;
   font: inherit;
+  box-shadow: 0 1px 4px rgba(8, 12, 15, 0.06);
 }
 
 .chappy-close:hover {
-  background: rgba(8, 12, 15, 0.06);
+  background: #f0f1f3;
+  color: #11161c;
 }
 
-.chappy-menu {
-  display: flex;
-  width: 28px;
-  height: 28px;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  color: #3d454d;
-}
-
-.chappy-menu span {
-  width: 12px;
-  height: 1.5px;
-  margin: 1.6px 0;
+.chappy-close span {
+  position: absolute;
+  width: 11px;
+  height: 1.6px;
   border-radius: 999px;
   background: currentColor;
+}
+
+.chappy-close span:first-child {
+  transform: rotate(45deg);
+}
+
+.chappy-close span:last-child {
+  transform: rotate(-45deg);
 }
 
 .chappy-panel-brand {
@@ -766,18 +767,10 @@ h2 {
   font-weight: 800;
 }
 
-.chappy-panel-brand span {
-  width: 0;
-  height: 0;
-  border-top: 4px solid #4d5660;
-  border-right: 4px solid transparent;
-  border-left: 4px solid transparent;
-}
-
 .chappy-panel-body {
   display: grid;
-  gap: 8px;
-  padding: 10px 12px 12px;
+  gap: 7px;
+  padding: 9px 12px 12px;
 }
 
 .chappy-pill {
@@ -793,10 +786,10 @@ h2 {
 }
 
 .chappy-prompt {
-  margin: 0 0 2px;
+  margin: 0;
   color: #2d333a;
-  font-size: 12px;
-  line-height: 1.45;
+  font-size: 11px;
+  line-height: 1.35;
   font-weight: 650;
 }
 
@@ -834,31 +827,6 @@ h2 {
   background: #e2e3e7;
 }
 
-.chappy-context {
-  display: flex;
-  min-width: 0;
-  align-items: center;
-  gap: 6px;
-  margin-top: 4px;
-  border: 1px solid rgba(8, 12, 15, 0.08);
-  border-radius: 7px;
-  padding: 7px 8px;
-  background: #f1f3f7;
-  font-size: 10px;
-}
-
-.chappy-context span {
-  color: #5e6872;
-}
-
-.chappy-context b {
-  overflow: hidden;
-  color: #1457c8;
-  font-weight: 750;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .chappy-form {
   display: grid;
   gap: 8px;
@@ -892,31 +860,75 @@ h2 {
   gap: 8px;
 }
 
-.chappy-form-actions a,
-.chappy-form-actions button {
+.chappy-contact-actions {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 6px;
+}
+
+.chappy-form-actions a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 28px;
+  min-height: 30px;
   border-radius: 7px;
   font-size: 11px;
   font-weight: 850;
   text-decoration: none;
 }
 
-.chappy-form-actions a {
-  padding: 0 9px;
-  color: #1d2228;
+.chappy-whatsapp,
+.chappy-email,
+.chappy-send {
+  width: 30px;
+  height: 30px;
+}
+
+.chappy-whatsapp {
+  padding: 0;
+  border-radius: 999px;
+  color: #ffffff;
+  background: #25d366;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.chappy-email {
+  color: #3d454d;
   background: #f1f2f4;
 }
 
-.chappy-form-actions button {
-  min-width: 54px;
+.chappy-form-actions svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chappy-whatsapp svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2;
+}
+
+.chappy-send {
+  display: inline-grid;
+  place-items: center;
   border: 0;
+  border-radius: 8px;
   color: #101316;
   background: var(--amber);
   cursor: pointer;
   font: inherit;
+}
+
+.chappy-send:hover,
+.chappy-whatsapp:hover,
+.chappy-email:hover {
+  filter: brightness(0.96);
 }
 
 .chappy-float {
@@ -1134,15 +1146,14 @@ h2 {
   }
 
   .chappy-panel-header {
-    grid-template-columns: 24px 1fr 24px;
+    grid-template-columns: 1fr 28px;
     gap: 6px;
     padding: 8px 10px;
   }
 
-  .chappy-menu,
   .chappy-close {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
   }
 
   .chappy-panel-brand img {
@@ -1151,19 +1162,18 @@ h2 {
   }
 
   .chappy-panel-body {
-    gap: 7px;
+    gap: 6px;
     padding: 8px 10px 10px;
+  }
+
+  .chappy-prompt {
+    font-size: 10px;
   }
 
   .chappy-suggestion {
     min-height: 32px;
     padding: 7px;
     font-size: 10px;
-  }
-
-  .chappy-context {
-    margin-top: 2px;
-    padding: 6px 7px;
   }
 
   .chappy-form {
@@ -1174,6 +1184,17 @@ h2 {
 
   .chappy-form textarea {
     min-height: 48px;
+  }
+
+  .chappy-form-actions a {
+    min-height: 28px;
+  }
+
+  .chappy-whatsapp,
+  .chappy-email,
+  .chappy-send {
+    width: 28px;
+    height: 28px;
   }
 
   .chappy-float {
