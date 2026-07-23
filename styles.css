@@ -682,6 +682,19 @@ h2 {
   justify-self: end;
 }
 
+.site-footer {
+  padding: 0 0 26px;
+}
+
+.site-footer p {
+  margin: 0;
+  color: rgba(16, 19, 23, 0.56);
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.5;
+  text-align: center;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
