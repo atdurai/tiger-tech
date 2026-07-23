@@ -108,9 +108,11 @@ a {
 
 .hero-layout {
   display: grid;
-  grid-template-columns: minmax(320px, 0.7fr) minmax(620px, 1.3fr);
+  grid-template-columns: minmax(0, 760px);
   gap: 34px;
   align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .section-label {
@@ -139,7 +141,7 @@ h1 {
 
 .hero-copy-panel p {
   max-width: 610px;
-  margin: 18px 0 0;
+  margin: 18px auto 0;
   color: rgba(255, 255, 255, 0.74);
   font-size: 17px;
   line-height: 1.65;
@@ -168,7 +170,7 @@ h1 {
 }
 
 .conversion-banner {
-  display: grid;
+  display: none;
   grid-template-columns: minmax(250px, 0.92fr) 142px minmax(320px, 1.08fr);
   overflow: hidden;
   height: 310px;
@@ -178,6 +180,10 @@ h1 {
     radial-gradient(circle at 76% 10%, rgba(52, 211, 153, 0.12), transparent 30%),
     rgba(16, 19, 23, 0.94);
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.28);
+}
+
+.conversion-banner[hidden] {
+  display: none;
 }
 
 .manual-card-side {
@@ -663,6 +669,153 @@ h2 {
   font-weight: 650;
 }
 
+.build-section {
+  padding: 0 0 70px;
+}
+
+.build-block {
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+  gap: 42px;
+  align-items: start;
+}
+
+.build-block h2 {
+  max-width: 510px;
+}
+
+.build-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.build-item {
+  min-height: 132px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.48);
+  box-shadow: 0 12px 34px rgba(17, 20, 24, 0.06);
+}
+
+.build-item span {
+  display: block;
+  color: var(--charcoal);
+  font-size: 20px;
+  line-height: 1.05;
+  font-weight: 900;
+}
+
+.build-item p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.48;
+  font-weight: 650;
+}
+
+.help-section {
+  padding: 70px 0;
+  background: var(--charcoal);
+  color: var(--white);
+}
+
+.help-block {
+  display: grid;
+  grid-template-columns: 0.78fr 1.22fr;
+  gap: 42px;
+  align-items: start;
+}
+
+.help-block h2 {
+  max-width: 600px;
+}
+
+.help-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.help-item {
+  min-height: 150px;
+  border: 1px solid var(--dark-line);
+  border-radius: 8px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.help-item span {
+  display: block;
+  color: var(--white);
+  font-size: 21px;
+  line-height: 1.05;
+  font-weight: 900;
+}
+
+.help-item p {
+  margin: 16px 0 0;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 14px;
+  line-height: 1.55;
+  font-weight: 650;
+}
+
+.process-section {
+  padding: 70px 0;
+}
+
+.process-block {
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+  gap: 42px;
+  align-items: start;
+}
+
+.process-intro h2 {
+  max-width: 470px;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.process-step {
+  min-height: 218px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 14px 40px rgba(17, 20, 24, 0.07);
+}
+
+.process-step span {
+  display: inline-flex;
+  color: var(--amber);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.process-step h3 {
+  margin: 38px 0 0;
+  color: var(--charcoal);
+  font-size: 24px;
+  line-height: 1.02;
+  font-weight: 900;
+}
+
+.process-step p {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+  font-weight: 650;
+}
+
 .contact-section {
   padding: 0 0 70px;
 }
@@ -1085,6 +1238,9 @@ h2 {
 
   .hero-layout,
   .profile-block,
+  .build-block,
+  .help-block,
+  .process-block,
   .contact-card {
     grid-template-columns: 1fr;
   }
@@ -1165,6 +1321,64 @@ h2 {
   .profile-block p {
     margin-top: 0;
     line-height: 1.78;
+  }
+
+  .build-section {
+    padding-bottom: 74px;
+  }
+
+  .build-block {
+    gap: 34px;
+  }
+
+  .build-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .build-item {
+    min-height: 0;
+    padding: 20px;
+  }
+
+  .help-section {
+    padding: 68px 0 74px;
+  }
+
+  .help-block {
+    gap: 34px;
+  }
+
+  .help-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .help-item {
+    min-height: 0;
+    padding: 20px;
+  }
+
+  .process-section {
+    padding: 68px 0 74px;
+  }
+
+  .process-block {
+    gap: 34px;
+  }
+
+  .process-steps {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .process-step {
+    min-height: 0;
+    padding: 20px;
+  }
+
+  .process-step h3 {
+    margin-top: 28px;
   }
 
   .contact-section {
