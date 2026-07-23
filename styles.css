@@ -747,6 +747,7 @@ h2 {
 
 .chappy-panel-brand {
   display: inline-flex;
+  width: 100%;
   min-width: 0;
   align-items: center;
   gap: 6px;
@@ -757,6 +758,7 @@ h2 {
 
 .chappy-panel-brand img {
   display: block;
+  flex: 0 0 auto;
   width: 26px;
   height: 26px;
   padding: 2px;
@@ -770,6 +772,7 @@ h2 {
 }
 
 .chappy-panel-brand strong {
+  flex: 0 0 auto;
   font-size: 12px;
   font-weight: 800;
 }
@@ -781,15 +784,20 @@ h2 {
 }
 
 .chappy-pill {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
   width: fit-content;
   border-radius: 5px;
   padding: 3px 6px;
   background: rgba(255, 154, 0, 0.18);
   color: #613900;
-  font-size: 9px;
+  font-size: clamp(7px, 2.4vw, 9px);
   font-weight: 900;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
+  text-overflow: ellipsis;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .chappy-prompt {
