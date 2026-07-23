@@ -12,7 +12,7 @@
   --green: #34d399;
   --sky: #7dd3fc;
   --shadow: 0 24px 80px rgba(17, 20, 24, 0.16);
-  --site-font: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --site-font: Rajdhani, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 * {
@@ -696,41 +696,6 @@ h2 {
   text-align: center;
 }
 
-.font-switcher {
-  position: fixed;
-  left: 18px;
-  bottom: 18px;
-  z-index: 110;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid rgba(8, 12, 15, 0.12);
-  border-radius: 8px;
-  padding: 8px;
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 12px 38px rgba(8, 12, 15, 0.16);
-  backdrop-filter: blur(14px);
-}
-
-.font-switcher label {
-  color: #2c333a;
-  font-size: 11px;
-  font-weight: 900;
-}
-
-.font-switcher select {
-  min-height: 32px;
-  max-width: 190px;
-  border: 1px solid rgba(8, 12, 15, 0.14);
-  border-radius: 6px;
-  padding: 0 28px 0 9px;
-  background: #ffffff;
-  color: #151a20;
-  font: inherit;
-  font-size: 12px;
-  font-weight: 800;
-}
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -1209,17 +1174,6 @@ h2 {
   .contact-card {
     gap: 50px;
     padding: 34px 28px 28px;
-  }
-
-  .font-switcher {
-    left: 12px;
-    bottom: 10px;
-    gap: 6px;
-    padding: 7px;
-  }
-
-  .font-switcher select {
-    max-width: min(174px, calc(100vw - 142px));
   }
 
   .conversion-banner {
