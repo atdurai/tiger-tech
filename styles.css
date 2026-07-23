@@ -153,6 +153,19 @@ h1 {
   vertical-align: -0.1em;
 }
 
+.profile-wordmark {
+  display: inline-block;
+  box-sizing: content-box;
+  width: auto;
+  height: 0.72em;
+  max-width: min(100%, 7.2em);
+  margin-right: 0.16em;
+  padding: 0.08em 0.12em;
+  border-radius: 6px;
+  background: var(--charcoal);
+  vertical-align: -0.05em;
+}
+
 .conversion-banner {
   display: grid;
   grid-template-columns: minmax(250px, 0.92fr) 142px minmax(320px, 1.08fr);
@@ -1125,6 +1138,28 @@ h2 {
   .brand-wordmark {
     height: 0.84em;
     margin-right: 0.12em;
+  }
+
+  .pro-section {
+    padding: 68px 0 74px;
+  }
+
+  .profile-block {
+    gap: 52px;
+  }
+
+  .profile-block p {
+    margin-top: 0;
+    line-height: 1.78;
+  }
+
+  .contact-section {
+    padding-bottom: 88px;
+  }
+
+  .contact-card {
+    gap: 50px;
+    padding: 34px 28px 28px;
   }
 
   .conversion-banner {
