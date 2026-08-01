@@ -366,16 +366,13 @@
             <label class="sr-only" for="chappy-message">Message for TigerOne</label>
             <textarea id="chappy-message" rows="3" placeholder="Describe your daily manual work..."></textarea>
             <div class="chappy-form-actions">
-              <div class="chappy-contact-actions">
-                <a class="chappy-whatsapp" href="#contact" aria-label="Contact TigerOne on WhatsApp">
-                  <svg aria-hidden="true"><use href="#icon-whatsapp" /></svg>
-                </a>
-                <a class="chappy-email" href="#contact" aria-label="Email TigerOne">
-                  <svg aria-hidden="true"><use href="#icon-mail" /></svg>
-                </a>
-              </div>
-              <button class="chappy-send" type="submit" aria-label="Send message">
-                <svg aria-hidden="true"><use href="#icon-send" /></svg>
+              <a class="chappy-email" href="mailto:thangaduraigct@gmail.com">
+                <svg aria-hidden="true"><use href="#icon-mail" /></svg>
+                <span>Email</span>
+              </a>
+              <button class="chappy-whatsapp" type="submit">
+                <svg aria-hidden="true"><use href="#icon-whatsapp" /></svg>
+                <span>WhatsApp</span>
               </button>
             </div>
           </form>
@@ -393,7 +390,7 @@
       const chappyMessage = document.querySelector("#chappy-message");
       const chappySuggestions = document.querySelectorAll(".chappy-suggestion");
       const chappyForm = document.querySelector(".chappy-form");
-      const chappyContacts = document.querySelectorAll(".chappy-form-actions a");
+      const chappyEmail = document.querySelector(".chappy-email");
       const chappyFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
 
       function setChappyOpen(isOpen) {
@@ -424,12 +421,27 @@
 
       chappyForm.addEventListener("submit", (event) => {
         event.preventDefault();
-        window.location.hash = "contact";
+        const description = chappyMessage.value.trim();
+        if (!description) {
+          chappyMessage.focus();
+          return;
+        }
+        const message = `Hello TigerOne, I'd like help with: ${description}`;
+        window.open(`https://wa.me/919597009538?text=${encodeURIComponent(message)}`, "_blank", "noopener");
         setChappyOpen(false);
       });
 
-      chappyContacts.forEach((link) => {
-        link.addEventListener("click", () => setChappyOpen(false));
+      chappyEmail.addEventListener("click", (event) => {
+        event.preventDefault();
+        const description = chappyMessage.value.trim();
+        if (!description) {
+          chappyMessage.focus();
+          return;
+        }
+        const subject = "TigerOne enquiry";
+        const message = `Hello TigerOne,\n\nI'd like help with: ${description}`;
+        window.location.href = `mailto:thangaduraigct@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+        setChappyOpen(false);
       });
 
       document.addEventListener("keydown", (event) => {

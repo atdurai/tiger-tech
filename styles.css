@@ -1287,34 +1287,29 @@ h2 {
   gap: 8px;
 }
 
-.chappy-contact-actions {
-  display: flex;
-  min-width: 0;
-  align-items: center;
-  gap: 6px;
-}
-
-.chappy-form-actions a {
+.chappy-form-actions a,
+.chappy-form-actions button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 6px;
   min-height: 30px;
+  padding: 0 10px;
+  border: 0;
   border-radius: 7px;
   font-size: 11px;
   font-weight: 850;
   text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .chappy-whatsapp,
-.chappy-email,
-.chappy-send {
-  width: 30px;
+.chappy-email {
   height: 30px;
 }
 
 .chappy-whatsapp {
-  padding: 0;
-  border-radius: 999px;
   color: #ffffff;
   background: #25d366;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
@@ -1341,18 +1336,6 @@ h2 {
   stroke-width: 2;
 }
 
-.chappy-send {
-  display: inline-grid;
-  place-items: center;
-  border: 0;
-  border-radius: 8px;
-  color: #101316;
-  background: var(--amber);
-  cursor: pointer;
-  font: inherit;
-}
-
-.chappy-send:hover,
 .chappy-whatsapp:hover,
 .chappy-email:hover {
   filter: brightness(0.96);
@@ -1729,9 +1712,7 @@ h2 {
   }
 
   .chappy-whatsapp,
-  .chappy-email,
-  .chappy-send {
-    width: 28px;
+  .chappy-email {
     height: 28px;
   }
 
